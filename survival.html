@@ -46,6 +46,19 @@
     const tabList = document.getElementById('tabList');
     const content = document.getElementById('content');
 
+    function init() {
+      player.health = 100;
+      player.hunger = 100;
+      player.inventory = {};
+      player.level = 1;
+      player.name = 'Default Name';
+      player.toolLevels = { pickaxe: 1, axe: 1, sword: 1 };
+
+      base.machineLevels = {};
+      base.level = 1;
+      base.stash = { food: 10 };
+    }
+
     tabList.addEventListener('click', (event) => {
       const tab = event.target.closest('.tab');
       if (!tab) return;
@@ -77,6 +90,8 @@
       content.appendChild(title);
       content.appendChild(actionsWrap);
     }
+
+    window.addEventListener('load', init);
   </script>
 </body>
 </html>
